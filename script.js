@@ -136,6 +136,8 @@ function update() {
     if (players === 1) {
       if (keys["ArrowUp"] || p1UpPressed) player1.y -= player1.speed;
       if (keys["ArrowDown"] || p1DownPressed) player1.y += player1.speed;
+      if (keys["ArrowUp"] || p1UpPressed) player2.y -= player2.speed;
+      if (keys["ArrowDown"] || p1DownPressed) player2.y += player2.speed;
     }
     if (players === 2) {
       if (keys["w"] || p1UpPressed) player1.y -= player1.speed;
@@ -306,6 +308,7 @@ function gameLoop() {
 }
 
 gameLoop();
+
 
 
 
