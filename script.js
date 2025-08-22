@@ -135,17 +135,18 @@ addTouchListeners("p2Down", () => p2DownPressed = true, () => p2DownPressed = fa
 function update() {
   if (game) {
     if (players === 1) {
-      if (keys["ArrowUp"]) player1.y -= player1.speed;
-      if (keys["ArrowDown"]) player1.y += player1.speed;
+      if (keys["ArrowUp"] || p1UpPressed) player1.y -= player1.speed;
+      if (keys["ArrowDown"] || p1DownPressed) player1.y += player1.speed;
     }
     if (players === 2) {
-      if (keys["w"]) player1.y -= player1.speed;
-      if (keys["s"]) player1.y += player1.speed;
+      if (keys["w"] || p1UpPressed) player1.y -= player1.speed;
+      if (keys["s"] || p1DownPressed) player1.y += player1.speed;
     }
-    if (keys["ArrowUp"]) player2.y -= player2.speed;
-    if (keys["ArrowDown"]) player2.y += player2.speed;
 
-    // Paddle wrap-around
+    if (keys["ArrowUp"] || p2UpPressed) player2.y -= player2.speed;
+    if (keys["ArrowDown"] || p2DownPressed) player2.y += player2.speed;
+
+    // Wrap-around
     [player1, player2].forEach(player => {
       if (player.y + player.height < 0) player.y = canvasHeight;
       else if (player.y > canvasHeight) player.y = -player.height;
@@ -306,5 +307,6 @@ function gameLoop() {
 }
 
 gameLoop();
+
 
 
