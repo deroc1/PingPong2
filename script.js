@@ -6,7 +6,6 @@ let game = false;
 let score = 0;
 let score1 = 0;
 let score2 = 0;
-let score3 = 0;
 document.getElementById('ButtonPlayer1').addEventListener('click', function () {
   players = 1;
   document.getElementById('ButtonPlayer1').style.background = 'green';
@@ -166,8 +165,8 @@ function update() {
       document.getElementById('score1').style.display = 'none';
       document.getElementById('score2').style.display = 'none';
       if (ball.x < 0 || ball.x > canvasWidth) {
-        score3++;
-        document.getElementById('score3').textContent = score3;
+        let score3 = 0;
+        document.getElementById('score3').textContent = bounceCount;
       }
     }
     if (score === 2) {
@@ -307,6 +306,7 @@ function gameLoop() {
 }
 
 gameLoop();
+
 
 
 
