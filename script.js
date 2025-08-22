@@ -230,7 +230,7 @@ function checkBlockCollision() {
 function onBallBounce() {
   bounceCount++;
   increaseBallSpeed();
-
+  document.getElementById('score3').textContent = bounceCount;
   if (bounceCount % 3 === 0) {
     player1.speed += 0.5;
     player2.speed += 0.5;
@@ -306,6 +306,7 @@ function gameLoop() {
 }
 
 gameLoop();
+
 
 
 
