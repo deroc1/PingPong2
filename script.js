@@ -111,7 +111,27 @@ document.addEventListener("keydown", e => {
 document.addEventListener("keyup", e => {
   keys[e.key] = false;
 });
+let p1UpPressed = false;
+let p1DownPressed = false;
+let p2UpPressed = false;
+let p2DownPressed = false;
 
+function addTouchListeners(btnId, onPress, onRelease) {
+  const btn = document.getElementById(btnId);
+  btn.addEventListener("touchstart", function (e) {
+    e.preventDefault();
+    onPress();
+  });
+  btn.addEventListener("touchend", function (e) {
+    e.preventDefault();
+    onRelease();
+  });
+}
+
+addTouchListeners("p1Up", () => p1UpPressed = true, () => p1UpPressed = false);
+addTouchListeners("p1Down", () => p1DownPressed = true, () => p1DownPressed = false);
+addTouchListeners("p2Up", () => p2UpPressed = true, () => p2UpPressed = false);
+addTouchListeners("p2Down", () => p2DownPressed = true, () => p2DownPressed = false);
 function update() {
   if (game) {
     if (players === 1) {
@@ -286,4 +306,5 @@ function gameLoop() {
 }
 
 gameLoop();
+
 
