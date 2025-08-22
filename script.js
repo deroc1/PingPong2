@@ -7,6 +7,27 @@ let score = 0;
 let score1 = 0;
 let score2 = 0;
 let score3 = 0;
+document.getElementById('ButtonPlayer1').addEventListener('click', function () {
+  players = 1;
+  document.getElementById('ButtonPlayer1').style.background = 'green';
+  document.getElementById('ButtonPlayer2').style.background = 'red';
+  score = 1;
+
+  document.getElementById('mobileControls').style.display = 'block';
+  document.getElementById('controls1').style.display = 'block';
+  document.getElementById('controls2').style.display = 'none';
+});
+
+document.getElementById('ButtonPlayer2').addEventListener('click', function () {
+  players = 2;
+  document.getElementById('ButtonPlayer2').style.background = 'green';
+  document.getElementById('ButtonPlayer1').style.background = 'red';
+  score = 2;
+
+  document.getElementById('mobileControls').style.display = 'block';
+  document.getElementById('controls1').style.display = 'block';
+  document.getElementById('controls2').style.display = 'block';
+});
 
 let player1MovingUp = false;
 let player1MovingDown = false;
@@ -265,3 +286,4 @@ function gameLoop() {
 }
 
 gameLoop();
+
